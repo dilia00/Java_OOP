@@ -30,7 +30,7 @@ public class Fermer extends Character {
     @Override
     public String getInfo() {
 
-        return "Я Крестьянин! Меня зовут " + name;
+        return "Я Крестьянин!";
     }
 
     @Override

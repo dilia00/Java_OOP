@@ -41,7 +41,7 @@ public class Main {
     }
 
     static void printTeam(ArrayList<Character> team, int num) {
-        System.out.println("Команда: " + num);
+        System.out.println("Команда " + num + ":");
         for (Character character : team) {
             System.out.println(character.toString());
         }

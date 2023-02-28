@@ -70,8 +70,10 @@ public abstract class Character implements GameInterface {
         hp -= damage;
         if (hp > maxHp)
             hp = maxHp;
-        if (hp <= 0)
+        if (hp <= 0) {
             state = "Die";
+            hp = 0;
+        }
     }
 
     protected float identifyDamage(ArrayList<Character> team, int index) {
@@ -93,7 +95,7 @@ public abstract class Character implements GameInterface {
         int index = 0;
         double min = 100;
         for (int i = 0; i < team.size(); i++) {
-            if (min > coords.getDistance(team.get(i).coords) & !team.get(i).state.equals("Die")) {
+            if (min > coords.getDistance(team.get(i).coords) && !team.get(i).state.equals("Die")) {
                 index = i;
                 min = coords.getDistance(team.get(i).coords);
             }
@@ -101,9 +103,20 @@ public abstract class Character implements GameInterface {
         return index;
     }
 
+    protected int findHurt(ArrayList<Character> team) {
+        int index = 0;
+        for (int i = 0; i < team.size(); i++) {
+            if (team.get(i).hp < team.get(i).maxHp) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
     @Override
     public String getInfo() {
-        return "Я человек! ";
+        return "Я человек!";
     };
 
     @Override

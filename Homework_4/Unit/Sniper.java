@@ -21,7 +21,7 @@ public class Sniper extends Archer {
 
     @Override
     public String toString() {
-        return String.format("%-6s %-10s %2d %2d %s", name, "Cнайпер", speed, hp, state);
+        return String.format("%-6s %-10s %2d %2d %-3s %2d", name, "Cнайпер", speed, hp, state, shots);
 
     }
 }

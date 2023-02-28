@@ -9,7 +9,7 @@ public class Monk extends Mage {
     }
 
     public Monk(String name, Vector2D coords) {
-        super(30, 30, -4, -4, 12, 7, 5, coords.x, coords.y, 1, 5.1f);
+        super(30, 30, -8, -8, 12, 7, 5, coords.x, coords.y, 1, 5.1f);
         this.name = name;
         super.state = state;
     }

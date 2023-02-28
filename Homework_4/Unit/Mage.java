@@ -1,5 +1,7 @@
 package Homework_4.Unit;
 
+import java.util.ArrayList;
+
 public abstract class Mage extends Character {
 
     public Mage(int maxHp, int hp, int damage, int maxDamage, int attack, int protect, int speed, int x, int y,
@@ -9,17 +11,19 @@ public abstract class Mage extends Character {
         this.dist = dist;
     }
 
-    // public Mage(int health, int attack, int protect, int luck, int manna, float
-    // dist) {
-    // super(health, attack, protect, luck);
-
-    // }
-
     String name;
     int manna;
     float dist;
 
     public float getDist() {
         return dist;
+    }
+
+    @Override
+    public void step(ArrayList<Character> team1, ArrayList<Character> team2) {
+        if (state.equals("Die"))
+            return;
+        int target = findHurt(team1);
+        team1.get(target).getDamage(maxDamage);
     }
 }

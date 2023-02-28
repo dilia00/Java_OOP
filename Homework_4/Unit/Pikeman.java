@@ -8,7 +8,7 @@ public class Pikeman extends Soldier {
     }
 
     public Pikeman(String name, Vector2D coords) {
-        super(10, 10, 1, 3, 4, 5,
+        super(12, 12, 1, 3, 4, 5,
                 4, coords.x, coords.y);
         this.name = name;
         super.state = state;

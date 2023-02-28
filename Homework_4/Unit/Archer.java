@@ -26,7 +26,7 @@ public abstract class Archer extends Character {
         int target = findNearest(team2);
         team2.get(target).getDamage(identifyDamage(team2, target));
         for (int i = 0; i < team1.size(); i++) {
-            if (team1.get(i).getInfo().equals("Крестьянин")
+            if (team1.get(i).getInfo().equals("Я Крестьянин!")
                     && team1.get(i).state.equals("Stand")) {
                 team1.get(i).state = "Busy";
                 return;

@@ -22,7 +22,7 @@ public class Crossbowman extends Archer {
 
     @Override
     public String toString() {
-        return String.format("%-6s %-10s %2d %2d %s", name, "Арбалетчик", speed, hp, state);
+        return String.format("%-6s %-10s %2d %2d %-3s %2d", name, "Арбалетчик", speed, hp, state, shots);
 
     }
 }
