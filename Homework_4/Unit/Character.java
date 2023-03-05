@@ -10,12 +10,14 @@ public abstract class Character implements GameInterface {
     protected int protect;
     protected int speed;
     protected Vector2D coords;
-    String name;
+    protected String name;
     static final int UNITS = 10;
     public String state;
+    protected static int heroCnt;
 
-    public Character(int maxHp, int hp, int damage, int maxDamage,
+    protected Character(String name, int maxHp, int hp, int damage, int maxDamage,
             int attack, int protect, int speed, int x, int y) {
+        this.name = name;
         this.maxHp = maxHp;
         this.hp = hp;
         this.damage = damage;
@@ -25,6 +27,7 @@ public abstract class Character implements GameInterface {
         this.speed = speed;
         coords = new Vector2D(x, y);
         state = "Stand";
+        heroCnt++;
     }
 
     public static void createTeam1(ArrayList<Character> list, int y) {
@@ -92,7 +95,7 @@ public abstract class Character implements GameInterface {
     }
 
     protected int findNearest(ArrayList<Character> team) {
-        int index = 0;
+        int index = -1;
         double min = 100;
         for (int i = 0; i < team.size(); i++) {
             if (min > coords.getDistance(team.get(i).coords) && !team.get(i).state.equals("Die")) {
@@ -104,9 +107,9 @@ public abstract class Character implements GameInterface {
     }
 
     protected int findHurt(ArrayList<Character> team) {
-        int index = 0;
+        int index = -1;
         for (int i = 0; i < team.size(); i++) {
-            if (team.get(i).hp < team.get(i).maxHp) {
+            if (team.get(i).hp < team.get(i).maxHp && !team.get(i).state.equals("Die")) {
                 index = i;
                 break;
             }
@@ -114,14 +117,22 @@ public abstract class Character implements GameInterface {
         return index;
     }
 
+    public int[] getCoords() {
+        return new int[] { coords.x, coords.y };
+    }
+
     @Override
     public String getInfo() {
-        return "Я человек!";
+        return "Человек!";
     };
 
     @Override
     public String toString() {
-        return String.format("%-6s %-10s %2d %2d %s", name, "Человек", speed, hp, state);
-
+        return name +
+                " H:" + Math.round(hp) +
+                " P:" + protect +
+                " A:" + attack +
+                " D:" + Math.round(Math.abs((damage + maxDamage) / 2)) +
+                " " + state;
     }
 }

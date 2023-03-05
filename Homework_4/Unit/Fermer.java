@@ -3,19 +3,16 @@ package Homework_4.Unit;
 import java.util.ArrayList;
 
 public class Fermer extends Character {
+    int delivery;
 
-    public Fermer(int maxHp, int hp, int damage, int maxDamage, int attack, int protect, int speed, int x, int y,
-            int delivery) {
-        super(maxHp, hp, damage, maxDamage, attack, protect, speed, x, y);
+    protected Fermer(String name, int maxHp, int hp, int damage, int maxDamage, int attack, int protect, int speed,
+            int x, int y, int delivery) {
+        super(name, maxHp, hp, damage, maxDamage, attack, protect, speed, x, y);
         this.delivery = delivery;
     }
 
-    int delivery;
-    String name;
-
     public Fermer(String name, Vector2D coords) {
-        this(1, 1, 1, 1, 1, 1, 3, coords.x, coords.y, 1);
-        this.name = name;
+        this(name, 1, 1, 1, 1, 1, 1, 3, coords.x, coords.y, 1);
         super.state = state;
     }
 
@@ -29,14 +26,7 @@ public class Fermer extends Character {
 
     @Override
     public String getInfo() {
-
-        return "Я Крестьянин!";
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%-6s %-10s %2d %2d %s", name, "Крестьянин", speed, hp, state);
-
+        return "Фермер!";
     }
 
 }
