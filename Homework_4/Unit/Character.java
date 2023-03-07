@@ -69,6 +69,10 @@ public abstract class Character implements GameInterface {
         return speed;
     }
 
+    public String getState() {
+        return state;
+    }
+
     protected void getDamage(float damage) {
         hp -= damage;
         if (hp > maxHp)

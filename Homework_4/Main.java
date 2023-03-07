@@ -21,6 +21,10 @@ public class Main {
         sortTeam(listAll);
 
         while (true) {
+            if (getWinner(listTeam1, "Green") == 10)
+                break;
+            else if (getWinner(listTeam2, "Blue") == 10)
+                break;
             View.view();
             user_input.nextLine();
             for (Character character : listAll) {
@@ -31,6 +35,19 @@ public class Main {
                 }
             }
         }
+    }
+
+    static int getWinner(ArrayList<Character> team, String color) {
+        int die = 0;
+        for (Character character : team) {
+            if (character.getState() == "Die")
+                die++;
+        }
+        if (die == 10)
+            System.out.println(
+                    "-----------------------------------------" + color
+                            + " winner!-----------------------------------------");
+        return die;
     }
 
     static void sortTeam(ArrayList<Character> team) {

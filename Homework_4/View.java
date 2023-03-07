@@ -66,7 +66,7 @@ public class View {
         System.out.println("");
         System.out.print(top10 + "    ");
         System.out.print("Green side");
-        for (int i = 0; i < l[0] - 9; i++)
+        for (int i = 0; i < l[0] - 10; i++)
             System.out.print(" ");
         System.out.println(":\tBlue side");
         for (int i = 1; i < 11; i++) {
@@ -78,7 +78,7 @@ public class View {
         System.out.println(Main.listTeam1.get(0));
         System.out.println(midl10);
 
-        for (int i = 2; i < 9; i++) {
+        for (int i = 2; i < 10; i++) {
             for (int j = 1; j < 11; j++) {
                 System.out.print(getChar(i, j));
             }
